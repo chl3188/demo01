@@ -1,0 +1,32 @@
+import React, { useEffect, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import HeaderLayout from "@/components/basic/layout/HeaderLayout";
+import FooterLayout from "@/components/basic/layout/FooterLayout";
+
+const MainPage = React.lazy(() => import("@/pages/homepage/main/MainPage"));
+
+const AppContent: React.FC = () => {
+  useEffect(() => {}, []);
+
+  return (
+    <>
+      <div>
+        <HeaderLayout />
+        <div>
+          <div style={{ padding: "0 24px 24px" }}>
+            <div>
+              <Suspense>
+                <Routes>
+                  <Route path="/" element={<MainPage />} />
+                </Routes>
+              </Suspense>
+            </div>
+            <FooterLayout />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AppContent;
