@@ -1,5 +1,6 @@
 import React, { useEffect, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import styled from "styled-components";
 import HeaderLayout from "@/components/basic/layout/HeaderLayout";
 import FooterLayout from "@/components/basic/layout/FooterLayout";
 
@@ -10,10 +11,10 @@ const AppContent: React.FC = () => {
 
   return (
     <>
-      <div>
+      <Body>
         <HeaderLayout />
         <div>
-          <div style={{ padding: "0 24px 24px" }}>
+          <div>
             <div>
               <Suspense>
                 <Routes>
@@ -24,9 +25,15 @@ const AppContent: React.FC = () => {
             <FooterLayout />
           </div>
         </div>
-      </div>
+      </Body>
     </>
   );
 };
 
 export default AppContent;
+
+const Body = styled.body`
+  display: block;
+  margin: 0;
+  padding: 0;
+`;
