@@ -1,17 +1,16 @@
-import React, { useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import HeaderLayout from "@/components/basic/layout/HeaderLayout";
 import FooterLayout from "@/components/basic/layout/FooterLayout";
 
 const MainPage = React.lazy(() => import("@/pages/homepage/main/MainPage"));
+const NewsPage = React.lazy(() => import("@/pages/homepage/news/NewsPage"));
 
 const AppContent: React.FC = () => {
-  useEffect(() => {}, []);
-
   return (
     <>
-      <Body>
+      <div>
         <HeaderLayout />
         <div>
           <div>
@@ -19,21 +18,16 @@ const AppContent: React.FC = () => {
               <Suspense>
                 <Routes>
                   <Route path="/" element={<MainPage />} />
+                  <Route path="/news" element={<NewsPage />} />
                 </Routes>
               </Suspense>
             </div>
             <FooterLayout />
           </div>
         </div>
-      </Body>
+      </div>
     </>
   );
 };
 
 export default AppContent;
-
-const Body = styled.body`
-  display: block;
-  margin: 0;
-  padding: 0;
-`;

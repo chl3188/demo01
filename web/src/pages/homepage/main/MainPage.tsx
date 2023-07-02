@@ -1,5 +1,5 @@
 import React from "react";
-import MainTemplate from "@/components/pages/homepage/main/MainTemplate";
+import MainTemplate from "@/components/board/Board";
 
 const MainPage: React.FC = () => {
   return (
