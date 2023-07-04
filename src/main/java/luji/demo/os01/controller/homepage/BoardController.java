@@ -25,7 +25,7 @@ public class BoardController {
     public ResponseBasic getBoardList(@RequestParam("category") int category) {
         return boardService.getBoard(category);
     }
-    @GetMapping("/board/list")
+    @GetMapping("/list")
     public ResponseBasic getBoardList() {
         return boardService.getBoardList();
     }
