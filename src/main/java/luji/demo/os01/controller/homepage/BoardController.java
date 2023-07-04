@@ -5,13 +5,14 @@ import luji.demo.os01.service.homepage.Board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 
 @RestController()
-@RequestMapping("/os01/api/board")
+@RequestMapping("/os01/api/homepage/board")
 public class BoardController {
     private final BoardService boardService;
 
@@ -20,13 +21,12 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @GetMapping("/category/list")
-    public ResponseBasic getBoardList() {
-        return boardService.getBoardCategoryList();
+    @GetMapping("")
+    public ResponseBasic getBoardList(@RequestParam("category") int category) {
+        return boardService.getBoard(category);
     }
-
-    @GetMapping("/list")
-    public String getBoardDetail() {
-        return "";
+    @GetMapping("/board/list")
+    public ResponseBasic getBoardList() {
+        return boardService.getBoardList();
     }
 }

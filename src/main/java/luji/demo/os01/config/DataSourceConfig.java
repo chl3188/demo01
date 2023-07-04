@@ -39,7 +39,7 @@ public class DataSourceConfig {
         sqlSessionFactoryBean.setMapperLocations(arrResources);
         sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
 
-        return (SqlSessionFactory)sqlSessionFactoryBean.getObject();
+        return sqlSessionFactoryBean.getObject();
     }
 
     @Bean

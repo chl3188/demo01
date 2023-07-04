@@ -31,7 +31,7 @@ create table demo.board (
     user_id int not null,
     title varchar(256) not null,
     user_name int not null,
-    content clob,
+    content text,
     view_count int,
     createdAt datetime,
     deletedAt datetime

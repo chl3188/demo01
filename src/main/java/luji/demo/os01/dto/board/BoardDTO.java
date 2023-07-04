@@ -1,8 +1,10 @@
 package luji.demo.os01.dto.board;
 
+import lombok.Data;
+
 import java.sql.Timestamp;
 
-public class BoardDTO {
+public @Data class BoardDTO {
     private int id;
     private int board_id;
     private int user_id;
