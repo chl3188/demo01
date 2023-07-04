@@ -2,7 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <package name="luji.demo.os01"/>
+    </typeAliases>
     <mappers>
-        <mapper resource="BoardMapper.xml"/>
+        <mapper resource="/mapper/BoardMapper.xml"/>
     </mappers>
 </configuration>
