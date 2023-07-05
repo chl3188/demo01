@@ -12,6 +12,6 @@ public @Data class PostDTO {
     private String userName;
     private Object content;
     private int viewCount;
-    private Timestamp createdAt;
+    private String createdAt;
     private Timestamp deletedAt;
 }

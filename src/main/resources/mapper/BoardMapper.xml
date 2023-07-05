@@ -11,7 +11,7 @@
             user_name "userName",
             content,
             view_count "viewCount",
-            createdAt,
+            DATE_FORMAT(createdAt, '%Y-%m-%d') AS createdAt,
             deletedAt
         FROM
             demo.post

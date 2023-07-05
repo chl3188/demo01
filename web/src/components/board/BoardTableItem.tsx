@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { IPost } from "@/apis/homepage/board/board.types";
+import { IPost } from "@/apis/homepage/post/post.types";
 
 interface Props {
   postList: IPost[];
