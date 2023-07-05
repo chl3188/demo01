@@ -2,25 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="luji.demo.os01.dao.board.BoardMapper">
 
-    <select id="getBoard" resultType="luji.demo.os01.dto.board.BoardDTO">
+    <select id="getPostList" resultType="luji.demo.os01.dto.board.PostDTO">
         SELECT
             id,
             board_id,
             user_id,
             title,
-            user_name,
+            user_name "userName",
             content,
-            view_count,
+            view_count "viewCount",
             createdAt,
             deletedAt
         FROM
-            demo.board
+            demo.post
         WHERE
             board_id = #{category}
             AND deletedAt is null
     </select>
 
-    <select id="getBoardCategory" resultType="luji.demo.os01.dto.board.BoardCategoryDTO">
+    <select id="getBoardList" resultType="luji.demo.os01.dto.board.BoardDTO">
         SELECT
             id,
             category,
@@ -29,9 +29,10 @@
             createdAt,
             deletedAt
         FROM
-            demo.boardCategory
+            demo.board
         WHERE
-            deletedAt is null
+            publish > 0
+            AND deletedAt IS NULL
     </select>
 
 </mapper>
