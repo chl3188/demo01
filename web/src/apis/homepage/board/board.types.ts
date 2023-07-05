@@ -1,23 +1,14 @@
-export interface IBoard {
-  id: number;
-  board_id: number;
-  user_id: number;
-  title: string;
-  user_name: number;
-  content: string;
-  view_count: number;
-  createdAt: string;
-  deletedAt: string;
+export enum TypeBoard {
+  TABLE = 1,
+  CAD = 2,
+  IMAGE = 3,
 }
 
 export interface IBoardCategory {
   id: number;
-  board_id: number;
-  user_id: number;
-  title: string;
-  user_name: number;
-  content: string;
-  view_count: number;
+  category: string;
+  type: number;
+  publish: number;
   createdAt: string;
   deletedAt: string;
 }

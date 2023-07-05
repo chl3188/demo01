@@ -1,30 +1,20 @@
-import Board from "@/components/board/Board";
 import React from "react";
 import styled from "styled-components";
 
-const NewsTemplate: React.FC = () => {
+interface Props {
+  SubMenu: React.ReactElement;
+  Board: React.ReactElement;
+}
+
+const NewsTemplate: React.FC<Props> = ({ SubMenu, Board }) => {
   return (
     <NewsTemplateContainer>
       <TopWrapper>
         <img src="https://toryhair.com/uploaded/banner/94145423156b8abfd6e56448c2d5d64c.jpg" />
         <TopTitle>News</TopTitle>
       </TopWrapper>
-      <BoardListWrapper>
-        <BoardList>
-          <BoardListItem>
-            <BoardListItemTitle>공지사항</BoardListItemTitle>
-          </BoardListItem>
-          <BoardListItem>
-            <BoardListItemTitle>신규매장오픈</BoardListItemTitle>
-          </BoardListItem>
-          <BoardListItem>
-            <BoardListItemTitle>이벤트</BoardListItemTitle>
-          </BoardListItem>
-        </BoardList>
-      </BoardListWrapper>
-      <BoardWrapper>
-        <Board></Board>
-      </BoardWrapper>
+      <BoardListWrapper>{SubMenu}</BoardListWrapper>
+      <BoardWrapper>{Board}</BoardWrapper>
     </NewsTemplateContainer>
   );
 };
@@ -69,39 +59,6 @@ const BoardListWrapper = styled.div`
     border-bottom: 1px solid #dfdfdf;
     z-index: 1;
     box-sizing: border-box;
-  }
-`;
-
-const BoardList = styled.div`
-  display: flex;
-  margin: 0 -50px;
-  position: relative;
-  z-index: 5;
-  padding: 0;
-  padding-inline-start: 40px;
-`;
-
-const BoardListItem = styled.div`
-  padding: 0 50px;
-  width: auto !important;
-  margin: 0;
-  display: list-item;
-  text-align: -webkit-match-parent;
-  list-style: none;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-`;
-
-const BoardListItemTitle = styled.a`
-  display: inline-block;
-  line-height: 70px;
-  font-size: 18px;
-  color: #505050;
-  font-weight: 600;
-  position: relative;
-
-  &:active {
-    color: #425537;
   }
 `;
 

@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import BoardTableItem from "./BoardTableItem";
+import { IPost } from "@/apis/homepage/post/post.types";
 
-const Board: React.FC = () => {
+interface Props {
+  data: IPost[];
+}
+
+const Board: React.FC<Props> = ({ data }) => {
   return (
     <BoardContainer>
       <BoardWrapper>
@@ -34,15 +40,7 @@ const Board: React.FC = () => {
                   <BoardListTableTh scope="col">조회</BoardListTableTh>
                 </BoardListTableTr>
               </BoardListTableHead>
-              <BoardListTableBody>
-                <BoardListTableTr>
-                  <BoardListTableItemTh>1</BoardListTableItemTh>
-                  <BoardListTableItemTh>상호변경안내</BoardListTableItemTh>
-                  <BoardListTableItemTh>토리헤어</BoardListTableItemTh>
-                  <BoardListTableItemTh>2023-06-28</BoardListTableItemTh>
-                  <BoardListTableItemTh>64</BoardListTableItemTh>
-                </BoardListTableTr>
-              </BoardListTableBody>
+              <BoardTableItem postList={data} />
             </BoardListTable>
           </BoardList>
           <Pagination></Pagination>
@@ -218,26 +216,6 @@ const BoardListTableTh = styled.th`
   font-weight: 500;
   line-height: 1.5em;
   background: #fafafa;
-  border-bottom: 1px solid #ddd;
-`;
-
-const BoardListTableBody = styled.tbody`
-  display: table-row-group;
-  vertical-align: middle;
-  border-color: inherit;
-`;
-
-const BoardListTableItemTh = styled.th`
-  display: table-cell;
-  vertical-align: inherit;
-  margin: 0;
-  height: 53px;
-  padding: 9px 5px;
-  color: #505050;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.5em;
-  text-align: center;
   border-bottom: 1px solid #ddd;
 `;
 

@@ -60,7 +60,6 @@ export const apiResponseBoolean = <T>(
 export const apiResponseData = <T>(res: IResponse<T>) => {
   try {
     if (responseSuccess(res)) {
-      console.log("2");
       return res.data;
     }
 
