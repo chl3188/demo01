@@ -7,22 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
-import java.util.List;
 
 @RestController()
-@RequestMapping("/os01/api/homepage/board")
-public class BoardController {
+@RequestMapping("/os01/api/homepage/post")
+public class PostController {
     private final BoardService boardService;
 
     @Autowired
-    public BoardController(BoardService boardService) {
+    public PostController(BoardService boardService) {
         this.boardService = boardService;
     }
 
     @GetMapping("/list")
-    public ResponseBasic getBoardList() {
-        return boardService.getBoardList();
+    public ResponseBasic getPostList(@RequestParam("boardId") int boardId) {
+        return boardService.getPostList(boardId);
     }
 }

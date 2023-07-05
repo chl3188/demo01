@@ -1,8 +1,8 @@
 package luji.demo.os01.service.homepage.Board;
 
 import luji.demo.os01.dao.board.BoardMapper;
-import luji.demo.os01.dto.board.BoardCategoryDTO;
 import luji.demo.os01.dto.board.BoardDTO;
+import luji.demo.os01.dto.board.PostDTO;
 import luji.demo.os01.dto.common.ResponseBasic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +21,10 @@ public class BoardService {
         this.boardMapper = boardMapper;
     }
 
-    public ResponseBasic getBoard(int category) {
+    public ResponseBasic getPostList(int category) {
         ResponseBasic responseBasic = new ResponseBasic();
 
-        List<BoardDTO> categoryList = boardMapper.getBoard(category);
+        List<PostDTO> categoryList = boardMapper.getPostList(category);
 
         if(categoryList.size() > 0) {
             responseBasic.setCode(RES_CODE_SUCCESS);
@@ -41,7 +41,7 @@ public class BoardService {
     public ResponseBasic getBoardList() {
         ResponseBasic responseBasic = new ResponseBasic();
 
-        List<BoardCategoryDTO> categoryList = boardMapper.getBoardCategory();
+        List<BoardDTO> categoryList = boardMapper.getBoardList();
 
         if(categoryList.size() > 0) {
             responseBasic.setCode(RES_CODE_SUCCESS);
