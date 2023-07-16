@@ -9,17 +9,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController()
 @RequestMapping("/os01/api/homepage/post")
 public class PostController {
-    private final BoardService boardService;
     private final PostService postService;
 
     @Autowired
-    public PostController(BoardService boardService, PostService postService) {
-        this.boardService = boardService;
+    public PostController(PostService postService) {
         this.postService = postService;
     }
 
     @GetMapping("/detail/{id}")
     public ResponseBasic getPostDetail(@PathVariable("id") int postId) {
         return postService.getPostDetail(postId);
+    }
+
+    @GetMapping("/list")
+    public ResponseBasic getPostList(@RequestParam("boardId") int boardId) {
+        return postService.getPostList(boardId);
     }
 }

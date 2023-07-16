@@ -10,4 +10,8 @@ import java.util.List;
 public interface PostMapper {
 
     PostDTO getPost(int postId);
+    List<PostDTO> getBoardPostList(int boardId);
+    int updateViewCount(int postId);
+
+
 }
