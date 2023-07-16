@@ -1,13 +1,15 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import styled from "styled-components";
 import HeaderLayout from "@/components/basic/layout/HeaderLayout";
 import FooterLayout from "@/components/basic/layout/FooterLayout";
 
 const MainPage = React.lazy(() => import("@/pages/homepage/main/MainPage"));
 const NewsPage = React.lazy(() => import("@/pages/homepage/news/NewsPage"));
+const NewsDetailPage = React.lazy(
+  () => import("@/pages/homepage/news/NewsDetailPage")
+);
 
-const AppContent: React.FC = () => {
+const HomepageContent: React.FC = () => {
   return (
     <>
       <div>
@@ -19,6 +21,7 @@ const AppContent: React.FC = () => {
                 <Routes>
                   <Route path="/" element={<MainPage />} />
                   <Route path="/news" element={<NewsPage />} />
+                  <Route path="/news/:id" element={<NewsDetailPage />} />
                 </Routes>
               </Suspense>
             </div>
@@ -30,4 +33,4 @@ const AppContent: React.FC = () => {
   );
 };
 
-export default AppContent;
+export default HomepageContent;

@@ -2,11 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 interface Props {
+  isShowDetail: boolean;
   SubMenu: React.ReactElement;
   Board: React.ReactElement;
+  Detail: React.ReactElement;
 }
 
-const NewsTemplate: React.FC<Props> = ({ SubMenu, Board }) => {
+const NewsTemplate: React.FC<Props> = ({
+  isShowDetail,
+  SubMenu,
+  Board,
+  Detail,
+}) => {
   return (
     <NewsTemplateContainer>
       <TopWrapper>
@@ -14,7 +21,11 @@ const NewsTemplate: React.FC<Props> = ({ SubMenu, Board }) => {
         <TopTitle>News</TopTitle>
       </TopWrapper>
       <BoardListWrapper>{SubMenu}</BoardListWrapper>
-      <BoardWrapper>{Board}</BoardWrapper>
+      {!isShowDetail ? (
+        <BoardWrapper>{Board}</BoardWrapper>
+      ) : (
+        <BoardDetailWrapper>{Detail}</BoardDetailWrapper>
+      )}
     </NewsTemplateContainer>
   );
 };
@@ -63,6 +74,11 @@ const BoardListWrapper = styled.div`
 `;
 
 const BoardWrapper = styled.div`
+  max-width: 1230px;
+  margin: auto;
+`;
+
+const BoardDetailWrapper = styled.div`
   max-width: 1230px;
   margin: auto;
 `;

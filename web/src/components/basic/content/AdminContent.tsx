@@ -4,7 +4,6 @@ import HeaderLayout from "../layout/HeaderLayout";
 import FooterLayout from "../layout/FooterLayout";
 
 const MainPage = React.lazy(() => import("@/pages/homepage/main/MainPage"));
-const NewsPage = React.lazy(() => import("@/pages/homepage/news/NewsPage"));
 
 const AppContent: React.FC = () => {
   useEffect(() => {}, []);
@@ -19,7 +18,6 @@ const AppContent: React.FC = () => {
               <Suspense>
                 <Routes>
                   <Route path="/" element={<MainPage />} />
-                  <Route path="/news" element={<MainPage />} />
                 </Routes>
               </Suspense>
             </div>
