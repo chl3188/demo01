@@ -16,7 +16,34 @@
         FROM
             demo.post
         WHERE
-            board_id = #{postId}
+            id = #{postId}
             AND deletedAt is null
     </select>
+
+    <select id="getBoardPostList" resultType="luji.demo.os01.dto.board.PostDTO">
+        SELECT
+            id,
+            board_id,
+            user_id,
+            title,
+            user_name "userName",
+            content,
+            view_count "viewCount",
+            DATE_FORMAT(createdAt, '%Y-%m-%d') AS createdAt,
+            deletedAt
+        FROM
+            demo.post
+        WHERE
+            board_id = #{boardId}
+          AND deletedAt is null
+    </select>
+
+    <update id="updateViewCount" >
+        UPDATE
+            demo.post
+        SET
+            view_count = view_count + 1
+        WHERE
+            id = #{postId}
+    </update>
 </mapper>

@@ -8,3 +8,8 @@ export const APIGetPostList = async (boardId: number): Promise<IPost[]> => {
   });
   return apiResponseData(res) ?? [];
 };
+
+export const APIGetPostDetail = async (postId: number): Promise<IPost> => {
+  const res = await getApi<IPost>("/os01/api/homepage/post/detail/" + postId);
+  return apiResponseData(res);
+};

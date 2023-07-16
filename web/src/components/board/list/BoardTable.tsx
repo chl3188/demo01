@@ -5,9 +5,10 @@ import { IPost } from "@/apis/homepage/post/post.types";
 
 interface Props {
   data: IPost[];
+  onClick: (bordId: number) => void;
 }
 
-const Board: React.FC<Props> = ({ data }) => {
+const Board: React.FC<Props> = ({ data, onClick }) => {
   return (
     <BoardContainer>
       <BoardWrapper>
@@ -40,7 +41,7 @@ const Board: React.FC<Props> = ({ data }) => {
                   <BoardListTableTh scope="col">조회</BoardListTableTh>
                 </BoardListTableTr>
               </BoardListTableHead>
-              <BoardTableItem postList={data} />
+              <BoardTableItem postList={data} onClick={onClick} />
             </BoardListTable>
           </BoardList>
           <Pagination></Pagination>

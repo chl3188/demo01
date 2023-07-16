@@ -4,21 +4,31 @@ import { IPost } from "@/apis/homepage/post/post.types";
 
 interface Props {
   postList: IPost[];
+  onClick: (bordId: number) => void;
 }
 
-const BoardTableItem: React.FC<Props> = ({ postList }) => {
+const BoardTableItem: React.FC<Props> = ({ postList, onClick }) => {
   return (
     <BoardListTableBody>
       {postList &&
-        postList.map((post) => (
-          <BoardListTableTr key={`post-list-${post.id}`}>
-            <BoardListTableItemTh>{post.id}</BoardListTableItemTh>
-            <BoardListTableItemTh>{post.title}</BoardListTableItemTh>
-            <BoardListTableItemTh>{post.userName}</BoardListTableItemTh>
-            <BoardListTableItemTh>{post.createdAt}</BoardListTableItemTh>
-            <BoardListTableItemTh>{post.viewCount}</BoardListTableItemTh>
-          </BoardListTableTr>
-        ))}
+        postList.map((post) => {
+          const handleOnClick = () => {
+            onClick(post.id);
+          };
+
+          return (
+            <BoardListTableTr
+              key={`post-list-${post.id}`}
+              onClick={handleOnClick}
+            >
+              <BoardListTableItemTh>{post.id}</BoardListTableItemTh>
+              <BoardListTableItemTh>{post.title}</BoardListTableItemTh>
+              <BoardListTableItemTh>{post.userName}</BoardListTableItemTh>
+              <BoardListTableItemTh>{post.createdAt}</BoardListTableItemTh>
+              <BoardListTableItemTh>{post.viewCount}</BoardListTableItemTh>
+            </BoardListTableTr>
+          );
+        })}
     </BoardListTableBody>
   );
 };
